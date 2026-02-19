@@ -1,13 +1,14 @@
 // src/app/api/admin/invite/route.ts
 import { NextResponse } from "next/server";
-import { supabaseService } from "../../../lib/supabaseServer";
+// NOTE: This file lives at src/app/api/admin/invite/route.ts
+// We need to go 4 levels up to reach src/lib/supabaseServer.ts
+import { supabaseService } from "../../../../lib/supabaseServer";
 
 type Role = "admin" | "manager" | "contractor";
 
 /**
- * NOTE:
- * This route is NOT required if you use /api/admin/invite.
- * Prefer deleting this file. Keeping it is safe but redundant.
+ * Admin invite endpoint
+ * POST /api/admin/invite
  */
 export async function POST(req: Request) {
   try {
